@@ -1,0 +1,21 @@
+.spacer {
+    flex: 1;
+  }
+  
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .content {
+    margin: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  mat-header-cell, mat-cell {
+    text-align: center;
+  }
+  

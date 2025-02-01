@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Modifier la Voiture</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Marque</label>
+        <input type="text" class="form-control" [(ngModel)]="car.marque" name="marque" required />
+      </div>
+      <div class="form-group">
+        <label>Modèle</label>
+        <input type="text" class="form-control" [(ngModel)]="car.modele" name="modele" required />
+      </div>
+      <div class="form-group">
+        <label>Année</label>
+        <input type="number" class="form-control" [(ngModel)]="car.annee" name="annee" required />
+      </div>
+      <div class="form-group">
+        <label>Type</label>
+        <input type="text" class="form-control" [(ngModel)]="car.type" name="type" required />
+      </div>
+      <div class="form-group">
+        <label>Tarif</label>
+        <input type="number" class="form-control" [(ngModel)]="car.tarif" name="tarif" required />
+      </div>
+      <div class="form-group">
+        <label>État</label>
+        <input type="text" class="form-control" [(ngModel)]="car.etat" name="etat" required />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" [(ngModel)]="car.description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+      </div>
+    </form>
+  </div>
+  

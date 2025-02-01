@@ -1,0 +1,117 @@
+/* Partie 1: Header */
+
+
+.logo-container img {
+  width: 100px;
+  animation: slideRight 1s ease forwards;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0;
+  animation: slideTop .5s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  display: inline-block;
+}
+
+.navbar a:hover {
+  color: #007bff;
+}
+
+/* Partie 1: Auth buttons */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.auth-buttons .btn {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  min-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 150px;
+  opacity: 0;
+  animation: slideSci .5s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+}
+
+.auth-buttons .btn:hover {
+  background-color: #0056b3;
+}
+
+.profile-menu {
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Animation for header and navbar links */
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideSci {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Pour les petits écrans, ajuster la largeur des boutons */
+@media (max-width: 768px) {
+  .auth-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

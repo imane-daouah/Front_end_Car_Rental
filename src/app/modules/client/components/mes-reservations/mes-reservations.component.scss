@@ -1,0 +1,177 @@
+/* Style général du conteneur */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Titre */
+  .container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.8em;
+  }
+  
+  /* Style du tableau */
+  .reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reservations-table th,
+  .reservations-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .reservations-table thead th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .reservations-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .reservations-table tbody tr:hover {
+    background-color: #e6f7ff;
+  }
+  
+  /* Boutons */
+  button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-edit {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .btn-edit:hover {
+    background-color: #138496;
+  }
+  
+  .btn-confirm {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-confirm:hover {
+    background-color: #218838;
+  }
+  
+  .btn-cancel {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #c82333;
+  }
+  
+  .btn-pay {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .btn-pay:hover {
+    background-color: #e0a800;
+  }
+  
+  .btn-view {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .btn-view:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Aucun bouton */
+  span {
+    color: #999;
+    font-style: italic;
+  }
+  /* Conteneur du formulaire */
+.update-dates-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre du formulaire */
+.update-dates-form h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Étiquettes */
+.update-dates-form label {
+  display: block;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Champs de saisie */
+.update-dates-form input[type="date"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Boutons */
+.update-dates-form button {
+  width: calc(50% - 10px);
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Bouton Enregistrer */
+.update-dates-form button:first-child {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.update-dates-form button:first-child:hover {
+  background-color: #218838;
+}
+
+/* Bouton Annuler */
+.update-dates-form button.btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.update-dates-form button.btn-cancel:hover {
+  background-color: #c82333;
+}

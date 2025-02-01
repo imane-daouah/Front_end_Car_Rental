@@ -1,0 +1,19 @@
+<div *ngIf="car" class="car-detail">
+  <h1 class="car-title">Détails de la voiture</h1>
+  <div class="car-info">
+    <img [src]="car.image" [alt]="car.marque + ' ' + car.modele" class="car-image" />
+    <div class="car-details">
+      <h2 class="car-model">{{ car.marque }} {{ car.modele }}</h2>
+      <p class="car-type"><i class="fa fa-car"></i> {{ car.type }}</p>
+      <p><strong>Année :</strong> {{ car.annee }}</p>
+      <p><strong>Tarif :</strong> {{ car.tarif }} €/jour</p>
+      <p><strong>Description :</strong> {{ car.description }}</p>
+      <button [routerLink]="['/login']" class="reserve-button">Réserver</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  

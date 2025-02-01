@@ -1,0 +1,79 @@
+<mat-toolbar color="primary">
+    <span>Gestion des Retours</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="showSection('list')">Liste des retours</button>
+    <button mat-button (click)="showSection('add')">Ajouter un retour</button>
+  </mat-toolbar>
+  
+  <div class="content">
+    <!-- Section Liste des retours -->
+    <div *ngIf="currentSection === 'list'">
+      <h2>Liste des retours</h2>
+      <table mat-table [dataSource]="retours" class="mat-elevation-z8">
+        <ng-container matColumnDef="Client">
+          <th mat-header-cell *matHeaderCellDef> Client </th>
+          <td mat-cell *matCellDef="let retour"> {{ retour.contrat.reservation.user.nom }} {{ retour.contrat.reservation.user.prenom }} </td>
+        </ng-container>
+        <ng-container matColumnDef="Voiture">
+          <th mat-header-cell *matHeaderCellDef> Voiture </th>
+          <td mat-cell *matCellDef="let retour"> {{ retour.contrat.reservation.car.marque }} {{ retour.contrat.reservation.car.modele }} </td>
+        </ng-container>
+        <ng-container matColumnDef="date Retour">
+          <th mat-header-cell *matHeaderCellDef> Date de retour </th>
+          <td mat-cell *matCellDef="let retour"> {{retour.date_retour | date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Etat Voiture">
+          <th mat-header-cell *matHeaderCellDef> État voiture </th>
+          <td mat-cell *matCellDef="let retour"> {{retour.etat_voitureBoolean ? 'Bon' : 'Mauvais'}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  
+    <!-- Section Ajouter un retour -->
+    <div *ngIf="currentSection === 'add'">
+      <h2>Liste des réservations pour retour</h2>
+      <table mat-table [dataSource]="contrats" class="mat-elevation-z8">
+        <ng-container matColumnDef="Client">
+          <th mat-header-cell *matHeaderCellDef> Client </th>
+          <td mat-cell *matCellDef="let contrat">  {{contrat.reservation.user.nom }} {{ contrat.reservation.user.prenom }}  </td>
+        </ng-container>
+        <ng-container matColumnDef="Voiture">
+          <th mat-header-cell *matHeaderCellDef> Voiture</th>
+          <td mat-cell *matCellDef="let contrat"> {{contrat.reservation.car.marque }} {{contrat.reservation.car.modele }} </td>
+        </ng-container>
+        <ng-container matColumnDef="Date fin">
+          <th mat-header-cell *matHeaderCellDef> Date fin </th>
+          <td mat-cell *matCellDef="let contrat"> {{contrat.reservation.date_fin | date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Statu">
+          <th mat-header-cell *matHeaderCellDef> Statu </th>
+          <td mat-cell *matCellDef="let contrat"> {{contrat.reservation.statu}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let contrat">
+            <button mat-button color="primary" *ngIf="contrat.reservation.statu === 'En cours'" (click)="retournerVoiture(contrat)">
+              Retour
+            </button>
+            <button mat-button color="accent" *ngIf="contrat.reservation.statu !== 'En cours'" (click)="retournerVoiture1(contrat)">
+              Retour
+            </button>
+          </td>
+          </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsReservation"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsReservation;"></tr>
+      </table>
+    </div>
+
+    <div *ngIf="currentSection === 'add-retour'">
+      <app-add-retour  [contrat]="contratSelected" (carAdded)="onCarAdded()"></app-add-retour>
+    </div>
+    <div *ngIf="currentSection === 'add-retour1'">
+      <app-add-retour-retared [contrat]="contratSelected" (carAdded)="onCarAdded()"></app-add-retour-retared>
+    </div>
+  </div>
+  

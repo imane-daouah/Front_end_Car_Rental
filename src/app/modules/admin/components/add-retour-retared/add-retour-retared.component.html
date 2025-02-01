@@ -1,0 +1,41 @@
+<div class="form-container">
+    <h2>État de la voiture</h2>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+      <!-- État de la voiture -->
+      <div>
+        <label>
+          <input type="radio" formControlName="etat" [value]="true" />
+          En bon état
+        </label>
+        <label>
+          <input type="radio" formControlName="etat" [value]="false" />
+          Endommagée
+        </label>
+      </div>
+  
+      <!-- Montant en MAD (affiché uniquement si l'état est "false") -->
+      <div *ngIf="carForm.get('etat')?.value === false">
+        <label for="montant">Montant des réparations (MAD) :</label>
+        <input id="montant" type="number" formControlName="montant" placeholder="Saisir le montant" />
+        <label for="description">Description :</label>
+        <input id="description" type="text" formControlName="description" placeholder="" />
+      </div>
+  
+      <!-- Montant par jour de retard -->
+      <div>
+        <label for="montantRetard">Montant par jour de retard (MAD) :</label>
+        <input id="montantRetard" type="number" formControlName="montantRetard" placeholder="Saisir le montant par jour de retard" />
+      </div>
+  
+      <!-- Boutons -->
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="carForm.invalid">
+          Enregistrer
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="onCancel()">
+          Annuler
+        </button>
+      </div>
+    </form>
+  </div>
+  

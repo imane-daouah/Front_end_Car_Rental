@@ -1,0 +1,65 @@
+<div class="container">
+  <!-- Afficher la liste des réservations -->
+  <div *ngIf="!isEditing">
+    <h2>Mes Réservations</h2> 
+    <table class="reservations-table">
+      <thead>
+        <tr>
+          <th>Voiture</th>
+          <th>Date Début</th>
+          <th>Date Fin</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.car.marque }} {{ reservation.car.modele }}</td>
+          <td>{{ reservation.date_debut | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ reservation.date_fin | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ reservation.statu }}</td>
+          <td>
+            <!-- Affichage conditionnel des actions -->
+            <ng-container [ngSwitch]="reservation.statu">
+              <!-- Actions pour statut "en attente" -->
+              <div *ngSwitchCase="'En attente'">
+                <button (click)="selectReservation(reservation)" class="btn-edit">Modifier</button>
+                <button (click)="confirmReservation(reservation.id_reservation)" class="btn-confirm">Confirmer</button>
+                <button (click)="cancelReservation(reservation.id_reservation)" class="btn-cancel">Annuler</button>
+              </div>
+              <!-- Actions pour statut "en attente de paiement" -->
+              <div *ngSwitchCase="'En attente de paiement'">
+                <button (click)="editReservation(reservation)" class="btn-edit">Modifier</button>
+                <button (click)="payReservation(reservation.id_reservation)" class="btn-pay">Paiement</button>
+                <button (click)="cancelReservation(reservation.id_reservation)" class="btn-cancel">Annuler</button>
+              </div>
+              <!-- Actions pour statut "en litige" -->
+              <div *ngSwitchCase="'En litige'">
+                <button (click)="viewDispute(reservation.id_reservation)" class="btn-view">Voir</button>
+              </div>
+              <!-- Aucun bouton pour les autres statuts -->
+              <div *ngSwitchDefault>
+                <span>Aucune action disponible</span>
+              </div>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Afficher le formulaire de modification -->
+  <div *ngIf="isEditing" class="update-dates-form">
+    <h3>Modifier les dates de la réservation</h3>
+    <p><strong>Voiture :</strong> {{ selectedReservation.car.marque }} {{ selectedReservation.car.modele }}</p>
+    <label for="startDate">Nouvelle Date Début :</label>
+    <input type="date" id="startDate" [(ngModel)]="newStartDate">
+
+    <label for="endDate">Nouvelle Date Fin :</label>
+    <input type="date" id="endDate" [(ngModel)]="newEndDate">
+
+    <button (click)="updateReservationDates(selectedReservation.id)">Enregistrer</button>
+    <button (click)="cancelEditing()" class="btn-cancel">Annuler</button>
+  </div>
+</div>
+

@@ -1,0 +1,75 @@
+.container {
+  max-width: 900px;
+  margin: 0 ;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.car-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.car-form .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.car-form .col {
+  flex: 1;
+}
+
+.car-form .form-group {
+  margin-bottom: 15px;
+}
+
+.car-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.car-form input,
+.car-form select,
+.car-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.car-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.car-form .btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.car-form .btn:hover {
+  background-color: #0056b3;
+}
+
+.car-form .btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+ 

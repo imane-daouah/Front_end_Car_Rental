@@ -1,0 +1,53 @@
+<header class="app-header" >
+  <div class="logo-container">
+    <img src="assets/car.png" alt="Logo" class="logo">
+  </div>
+  
+  <nav class="navbar">
+    <a href="/" style="--i:1;">ACCUEIL</a>
+    <a href="/about" style="--i:2;">ABOUT</a>
+    <a href="/reservation" style="--i:3;">RÉSERVATION</a>
+    <a href="/conditions" style="--i:4;">CONDITIONS GÉNÉRALES</a>
+    <a href="/contact" style="--i:5;">CONTACT</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <!-- Afficher les boutons Login/Signup si l'utilisateur n'est pas connecté -->
+    <ng-container *ngIf="!isAuthenticated; else loggedInTemplate">
+      <a href="/login" class="btn" style="--i:1;">Login</a>
+      <a href="/signup" class="btn" style="--i:2;">Signup</a>
+    </ng-container>
+
+    <!-- Afficher l'icône de profil et le bouton de déconnexion si l'utilisateur est connecté -->
+    <ng-template #loggedInTemplate>
+      <div class="profile-menu">
+        <img src="assets/icons/profile-icon.png" alt="Profil" class="profile-icon" (click)="navigateToProfile()">
+        <button (click)="logout()" class="btn" style="--i:1;">Logout</button>
+      </div>
+    </ng-template>
+  </div>
+
+</header>
+<style>
+  .app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+  position:fixed;
+ 
+  width: 100%;
+  
+  top: 0px;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: top 0.3s ease-in-out;/* Animation pour un effet de transition fluide */
+ 
+}
+
+.header-hidden {
+  top: -60px; /* Masquer le header */}
+</style>
+
+
